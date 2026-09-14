@@ -25,9 +25,9 @@ def trie3(liste): #insertion
     for i in range(1, len(liste)):
         j = i
         nb = liste[j]
-        while nb < liste[j - 1] and j > 0:
+        while liste[j] < liste[j - 1] and j > 0:
             
-            nb, liste[j] = liste[j - 1], nb
+            liste[j], liste[j - 1] = liste[j - 1], liste[j]
             j -= 1
             n += 1
 
