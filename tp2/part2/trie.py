@@ -20,13 +20,10 @@ def trie2(liste):
         return liste, n
 
 def trie3(liste): #insertion
-    nb = 0
     n = 0
     for i in range(1, len(liste)):
         j = i
-        nb = liste[j]
-        while liste[j] < liste[j - 1] and j > 0:
-            
+        while j > 0 and liste[j] < liste[j - 1]:
             liste[j], liste[j - 1] = liste[j - 1], liste[j]
             j -= 1
             n += 1
@@ -66,4 +63,6 @@ def trie_fusion(liste):
 
 
 tab = [5, 2, 8, 1, 4, 7, 3]
-print(trie_fusion(tab))
+print(trie3(tab))
+# print(trie_fusion(tab))
+# print(trie3(tab))
