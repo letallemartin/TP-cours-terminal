@@ -32,8 +32,38 @@ def trie3(liste): #insertion
             n += 1
 
     return liste, n
-                
-    
-    
+
+def trie_fusion(liste):
+	if len(liste) > 1:
+		demi = len(liste) // 2
+		gauche = trie_fusion(liste[demi:])
+		droite = trie_fusion(liste[:demi])
+
+		i = 0
+		j = 0
+		k = 0
+		while len(gauche) > i and len(droite) > j:
+			if gauche[i] < droite[j]:
+				liste[k] = gauche [i]
+				i += 1
+			else:
+				liste[k] = droite [j]
+				j += 1
+			k += 1
+		
+		while len(gauche) > i:
+			liste[k] = gauche [i]
+			i += 1
+			k += 1
+		while len(droite) > j:
+			liste[k] = droite [j]
+			j += 1
+			k += 1
+	return liste
+
+
+
+
+
 tab = [5, 2, 8, 1, 4, 7, 3]
-print(trie3(tab))
+print(trie_fusion(tab))
