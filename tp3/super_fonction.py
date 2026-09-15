@@ -12,4 +12,7 @@ def super_fonction(a) :
             m = a[i]
     return m
 
-print(super_fonction([1, 2, 4, 5]))
+
+assert super_fonction([1, 2, 4, 5]) > 0
+
+    
