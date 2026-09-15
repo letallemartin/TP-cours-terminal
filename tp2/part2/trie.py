@@ -27,7 +27,6 @@ def trie3(liste): #insertion
             liste[j], liste[j - 1] = liste[j - 1], liste[j]
             j -= 1
             n += 1
-
     return liste, n
 
 def trie_fusion(liste):
@@ -56,6 +55,7 @@ def trie_fusion(liste):
 			liste[k] = droite [j]
 			j += 1
 			k += 1
+        
 	return liste
 
 
@@ -63,6 +63,7 @@ def trie_fusion(liste):
 
 
 tab = [5, 2, 8, 1, 4, 7, 3]
-print(trie3(tab))
+
+print(trie_fusion(tab))
 # print(trie_fusion(tab))
 # print(trie3(tab))
