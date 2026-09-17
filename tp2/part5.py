@@ -71,18 +71,22 @@ def application():
     # Si l'utilisateur veut des températures
     if type_conversion == 't':
         sens_conversion = str(input("Tapez 'c' pour °C → °F, ou 'f' pour °F → °C : ",['c', 'f']))
-        temp = ...
+        temp = demander_temperature()
         # °C -> °F
-    if sens_conversion == 'c':
-        resultat = ...
-        print(f"{temp} °C = {resultat:.2f} °F")
-    else:
-        resultat = ...
-        print(f"{temp} °F = {resultat:.2f} °C")
+        if sens_conversion == 'c':
+            resultat = celsius_to_fahrenheit(temp)
+            print(f"{temp} °C = {resultat:.2f} °F")
+        else:
+            resultat = fahrenheit_to_celsius(temp)
+            print(f"{temp} °F = {resultat:.2f} °C")
     # Si l'utilisateur veut des devises
     else:
-        sens_conversion = str(input("Tapez 'e' pour euros → wons, ou 'w' pour wons →euros : ", ['e', 'w'])
-        montant = ...
-                    
-
-            
+        sens_conversion = str(input("Tapez 'e' pour euros → wons, ou 'w' pour wons →euros : ", ['e', 'w']))
+        montant = demander_temperature()
+        
+        if sens_conversion == 'e':
+            resultat = euros_vers_wons(montant)
+            print(f"{montant} € = {resultat:.2f} wons")
+        else:
+            resultat = wons_vers_euros(montant)
+            print(f"{montant} wons = {resultat:.2f} €")
