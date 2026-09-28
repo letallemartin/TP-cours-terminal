@@ -12,17 +12,17 @@ def somme_tab_pos(tab):
 
 print(somme_tab_pos([10,20,-5,20]))
 
-def emecode(n):
+def somme_chiffre(n):
 	if n < 10:
 		return n
-	return n % 10 + emecode(n // 10)
+	return n % 10 + somme_chiffre(n // 10)
 
-print(emecode(5258))
+print(somme_chiffre(5258))
 
 def racine(n):
 	if n < 10:
 		return n
-	return emecode(emecode(n))
+	return racine(somme_chiffre(n))
 
 print(racine(5515))
 
