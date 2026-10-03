@@ -1,8 +1,26 @@
-def fibo(n):
-    
-    if n > 1:
-        return fibo(n - 1) + fibo(n - 2)
-    return n
+def fibo(n,liste):
+	global compteur
+	compteur += 1
+	if n < len(liste):
+		return liste[n]
+	if n > 1:
+		liste.append(fibo(n - 1, liste) + fibo(n - 2, liste))
+		return liste[-1]
+	return n
+
+compteur = 0
+
+print(fibo(8,[0,1]))
+
+def fibo_iter(n):
+	a = 0
+	b = 1
+	for i in range(n):
+		new = a + b
+		a = b
+		b = new
+	return a
+print(fibo_iter(8))
 
 # assert fibo(5) == 5
 # assert fibo(6) == 8
@@ -36,7 +54,7 @@ def liste_temps(n:int):
         liste_temps.append(mesure_temps(i))
     return liste_temps
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 def plot_fibo(n):
     y = liste_temps(n)
     plt.xlabel('n')
@@ -45,4 +63,4 @@ def plot_fibo(n):
     plot_fibo(39)
     plt.show()
 
-plot_fibo(7)
+# plot_fibo(7)
