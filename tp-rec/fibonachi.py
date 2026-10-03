@@ -55,12 +55,14 @@ def liste_temps(n:int):
     return liste_temps
 
 # import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+
 def plot_fibo(n):
     y = liste_temps(n)
     plt.xlabel('n')
-    plt.ylabel('temps de calcul ( seconds )')
-    plt.plot (range(n), y, 'x') # Les points du tracé sont représentés par des croix
-    plot_fibo(39)
+    plt.ylabel('temps de calcul (secondes)')
+    plt.plot(range(n), y, 'x')
     plt.show()
 
-# plot_fibo(7)
+# Tu n'as plus qu'à changer la valeur ici :
+plot_fibo(7)
