@@ -1,4 +1,5 @@
 from turtle import *
+import random
 # speed(10)
 # forward(100)
 # left(30)
@@ -43,7 +44,6 @@ def arbre(L, n, R, ang1, ang2):
         return 0
     pensize(L / 15)  # Trait de 5 pixels d'épaisseur (ou width(5))
     forward(L)
-    
     left(ang1)
     arbre(L * R, n - 1, R, ang1, ang2)
     
