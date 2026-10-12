@@ -26,6 +26,11 @@ def secondes_en_minutes(nb, n = 0):
         return (n, nb)
     return secondes_en_minutes(nb - 60, n + 1)
 
+def seconde_iter(nb, n = 0):
+	if nb >= 60:
+		nb = nb - 1
+		n += 1
+	return (n, nb)
 def inverse_iter(txt):
     inv = ""
     for i in txt:
