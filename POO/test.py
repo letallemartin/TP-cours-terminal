@@ -6,7 +6,7 @@ class Client:
 client1 = Client("jean")
 
 class ComptBancaire:
-    def __init__(self, numero, solde = 0):
+    def __init__(self, numero, solde = 1000):
         self.numero = numero
         self.solde = solde
     
@@ -46,7 +46,7 @@ class Client:
     def afficher(self):
         print(f"Client : {self.prenom} {self.nom}")
         for compt in self.comptes:
-            compt.afficher()
+            compt.consulter_solde()
             
     def __str__(self):
         list = []
@@ -56,7 +56,22 @@ class Client:
 
 client = Client("Dupont","Paul",[compt2,compt1])
 while True:
-    print(client)
-    choix_compt = int(input("compt"))
-    choix_montant = int(input("montant: "))
-    if choix_compt == 1:
+	print(client)
+	choix_compt = int(input("compt"))
+	for compt in range(len(client.comptes)):
+		if (choix_compt - 1) == compt:
+			choix_action = int(input("choix: consulter(1) ajouter(2) retirez(3) virement(4)"))
+			if choix_action == 1:
+				client.afficher()
+			else:
+				montant = int(input("montant: "))
+			if choix_action == 2:
+				client.comptes[compt].deposer(montant)
+			elif choix_action == 3:
+				client.comptes[compt].retrait(montant)
+			elif choix_action == 4:
+				choix_compt2 = int(input("compt dest"))
+				for compt_dest in range(len(client.comptes)):
+					if (choix_compt2 - 1) == compt_dest:
+						client.comptes[compt].virement((client.comptes[compt_dest]), montant)
+
