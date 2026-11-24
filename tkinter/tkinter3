@@ -1,0 +1,115 @@
+
+import tkinter as tk
+
+fenetre = tk.Tk()
+fenetre.title("Déplacer une balle")
+
+class Balle:
+    def __init__(self, x, y, vx, vy, rayon):
+        self.x = x
+        self.y = y
+        self.vx = vx
+        self.vy = vy
+        self.rayon = rayon
+        
+    def animer(self):
+        #identifiant = fenetre.after(10, animer)
+        # ---------- Balle 1 ----------
+        x += vx
+        y += vy
+        if x <= rayon or x >= largeur - rayon:
+            vx1 = -vx1
+        if y <= rayon or y >= hauteur - rayon:
+            vy = -vy
+        canevas.coords(
+        balle1,
+        1 - rayon, y - rayon,
+        1 + rayon, y + rayon
+        )
+        
+        
+    
+
+
+
+largeur = 600
+hauteur = 400
+rayon = 20
+x1 = 60
+y1 = 60
+vx1 = 3
+vy1 = 2
+
+x2 = 200
+y2 = 100
+vx2 = 2
+vy2 = 3
+
+def deplacer():
+    canevas.move(balle, 3, 0) # Déplace la balle de 3 pixels vers la droite sur le canevas
+    fenetre.after(30, deplacer) # Délai de 30ms avant l’appel de la fonction deplacer
+
+def arreter():
+    fenetre.after_cancel(identifiant)
+
+def augmenter():
+    global vx, vy
+    if vx > 0:
+        vx += 1
+    else:
+        vx -= 1
+    if vy > 0:
+        vy += 1
+    else:
+        vy -= 1
+
+def diminuer():
+    global vx, vy
+    if vx > 0:
+        vx -= 1
+    else:
+        vx += 1
+    if vy > 0:
+        vy -= 1
+    else:
+        vy += 1
+    
+    
+
+
+canevas = tk.Canvas(
+fenetre,
+width=600,
+height=400,
+bg="white")
+canevas.pack()
+balle1 = canevas.create_oval( x1 - rayon, y1 - rayon, x1 + rayon, y1 + rayon, fill="blue" )
+balle2 = canevas.create_oval( x2 - rayon, y2 - rayon, x2 + rayon, y2 + rayon, fill="red" )
+
+bouton = tk.Button(
+fenetre,
+text="Déplacer",
+command=animer
+)
+bouton2 = tk.Button(
+fenetre,
+text="arreter",
+command=arreter
+)
+bouton3 = tk.Button(
+fenetre,
+text="augmenter",
+command=augmenter
+)
+
+bouton4 = tk.Button(
+fenetre,
+text="diminuer",
+command=diminuer
+)
+#fenetre.after(100, animer)
+bouton.pack()
+bouton3.pack()
+bouton2.pack()
+bouton4.pack()
+fenetre.mainloop()
